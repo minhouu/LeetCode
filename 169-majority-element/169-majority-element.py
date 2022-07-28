@@ -1,11 +1,11 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        set_nums=set(nums[:])
-        dict_nums = {}
-        for i in set_nums :
-            dict_nums[i] = 0
+        nums_dict = {}
         for i in nums :
-            dict_nums[i] += 1
-        for i in set_nums :
-            if dict_nums[i] > len(nums)/2 :
+            if i in nums_dict :
+                nums_dict[i] += 1
+            else :
+                nums_dict[i] = 1
+            if nums_dict[i] >= len(nums)/2 :
                 return i
+        
